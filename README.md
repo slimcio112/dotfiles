@@ -24,12 +24,12 @@ pacman -S stow
 check out the files in your home directory using git chekout
 
 ```
-$ git clone https://github.com/slimcio112/dotfiles.git
-$ cd dotfiles
+git clone https://github.com/slimcio112/dotfiles.git
+cd dotfiles
 ```
 
 then use stow in ~/dotfiles to create symlinks
 
 ```
-$ stow .
+stow .
 ```
