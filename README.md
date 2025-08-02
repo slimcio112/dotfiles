@@ -1,6 +1,6 @@
 # My dotfiles
 
-This directory contains config files for my system
+This directory contains config files for my Arch Linux. This approach uses symlinks instead of creating bare repo and tracking files in ~/.config so I can add files that are anywhere inside my home directory.
 
 ## Requirments
 
