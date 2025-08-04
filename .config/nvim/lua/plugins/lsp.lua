@@ -30,9 +30,8 @@ return {
         -- Nie aktualizuj w trybie wprowadzania
         update_in_insert = false,
       })
-      -- =======================
 
-      local lspconfig = require("lspconfig")
+    --local lspconfig = require("lspconfig")
       local mason_lspconfig = require("mason-lspconfig")
 
       mason_lspconfig.setup({
@@ -41,11 +40,6 @@ return {
           "clangd",
           "pyright",
 	  "texlab",
-        },
-        handlers = {
-          function(server_name)
-            lspconfig[server_name].setup({})
-          end,
         },
       })
     end,
