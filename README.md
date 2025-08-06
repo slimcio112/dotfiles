@@ -37,7 +37,7 @@ $ git clone https://github.com/slimcio112/dotfiles.git
 $ cd dotfiles
 ```
 
-then use stow in ~/dotfiles to create symlinks
+then use stow in ```~/dotfiles``` to create symlinks
 
 ```
 stow .
