@@ -153,6 +153,7 @@ function M.setup()
     end, { desc = "which_key_ignore" })
 
     -- Mapowania w terminalu
+    map("t", "<Esc>", "<C-\\><C-n>", { desc = "Exit Terminal" })
     map("t", "<C-/>", "<cmd>close<cr>", { desc = "Hide Terminal" })
     map("t", "<c-_>", "<cmd>close<cr>", { desc = "which_key_ignore" })
 
