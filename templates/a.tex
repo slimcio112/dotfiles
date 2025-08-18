@@ -1,0 +1,176 @@
+\documentclass[12pt,a4paper]{article}
+
+% --- PAKIETY PODSTAWOWE ---
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[polish]{babel}
+
+% --- GEOMETRIA STRONY ---
+\usepackage[margin=2.5cm, top=3cm, bottom=3cm]{geometry}
+
+% --- PAKIETY MATEMATYCZNE ---
+\usepackage{amsmath, amssymb, amsthm, mathtools}
+
+% --- KOLORY I HIPERŁĄCZA ---
+\usepackage{xcolor}
+\definecolor{ctpLatteBase}{HTML}{eff1f5}
+\definecolor{ctpLatteCrust}{HTML}{dce0e8}
+\definecolor{ctpLatteText}{HTML}{4c4f69}
+\definecolor{ctpLatteSubtext}{HTML}{6c6f85}
+\definecolor{ctpLatteMauve}{HTML}{8839ef}
+\definecolor{ctpLatteBlue}{HTML}{1e66f5}
+\definecolor{ctpLatteGreen}{HTML}{40a02b}
+\definecolor{ctpLatteRed}{HTML}{d20f39}
+\definecolor{ctpLattePeach}{HTML}{fe640b}
+\definecolor{ctpLatteLavender}{HTML}{7287fd}
+
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=ctpLatteBlue,
+    urlcolor=ctpLattePeach,
+    citecolor=ctpLatteGreen,
+    pdftitle={Notatki z Matematyki},
+    pdfauthor={Twoje Imię},
+}
+
+% --- TCOLORBOX ---
+\usepackage[most]{tcolorbox}
+
+\newtcolorbox{Defi}{
+    enhanced,
+    colback=ctpLatteBase,
+    colframe=ctpLatteMauve,
+    coltitle=white,
+    fonttitle=\bfseries,
+    title=Definicja,
+    boxed title style={
+        colback=ctpLatteMauve,
+        colframe=ctpLatteMauve,
+        coltext=white,
+        boxrule=1pt,
+        arc=4pt
+    },
+    attach boxed title to top left={xshift=6pt,yshift=-2pt},
+    boxrule=1pt,
+    arc=4pt,
+    left=8pt,right=8pt,top=6pt,bottom=6pt
+}
+
+\newtcolorbox{Tw}{
+    enhanced,
+    colback=ctpLatteBase,
+    colframe=ctpLatteBlue,
+    coltitle=white,
+    fonttitle=\bfseries,
+    title=Twierdzenie,
+    boxed title style={
+        colback=ctpLatteBlue,
+        colframe=ctpLatteBlue,
+        coltext=white,
+        boxrule=1pt,
+        arc=4pt
+    },
+    attach boxed title to top left={xshift=6pt,yshift=-2pt},
+    boxrule=1pt,
+    arc=4pt,
+    left=8pt,right=8pt,top=6pt,bottom=6pt
+}
+
+\newtcolorbox{Prz}{
+    enhanced,
+    colback=ctpLatteBase,
+    colframe=ctpLatteGreen,
+    coltitle=white,
+    fonttitle=\bfseries,
+    title=Przykład,
+    boxed title style={
+        colback=ctpLatteGreen,
+        colframe=ctpLatteGreen,
+        coltext=white,
+        boxrule=1pt,
+        arc=4pt
+    },
+    attach boxed title to top left={xshift=6pt,yshift=-2pt},
+    boxrule=1pt,
+    arc=4pt,
+    left=8pt,right=8pt,top=6pt,bottom=6pt
+}
+
+\newtcolorbox{Uw}{
+    enhanced,
+    colback=ctpLatteBase,
+    colframe=ctpLattePeach,
+    coltitle=white,
+    fonttitle=\bfseries,
+    title=Uwaga,
+    boxed title style={
+        colback=ctpLattePeach,
+        colframe=ctpLattePeach,
+        coltext=white,
+        boxrule=1pt,
+        arc=4pt
+    },
+    attach boxed title to top left={xshift=6pt,yshift=-2pt},
+    boxrule=1pt,
+    arc=4pt,
+    left=8pt,right=8pt,top=6pt,bottom=6pt
+}
+
+% --- LEPSZE NAGŁÓWKI SEKCJI ---
+\usepackage{titlesec}
+\titleformat{\section}
+  {\normalfont\Large\bfseries\color{ctpLatteLavender}}
+  {\thesection.}{1em}{}
+\titleformat{\subsection}
+  {\normalfont\large\bfseries\color{ctpLatteLavender}}
+  {\thesubsection.}{1em}{}
+
+% --- POZOSTAŁE ---
+\renewcommand{\qedsymbol}{\textcolor{ctpLatteText}{$\blacksquare$}}
+\title{\Huge\bfseries Notatki z Matematyki\\[1ex]\large\color{ctpLatteSubtext} Przykładowy dokument}
+\author{\large Stanisław Kamzol}
+\date{\today}
+
+% =============================================
+\begin{document}
+\color{ctpLatteText}
+
+\maketitle
+\hrule height 1.2pt
+\vspace{1.5em}
+\tableofcontents
+\newpage
+
+\section{Analiza Matematyczna}
+
+\begin{Defi}
+Niech $f: \mathbb{R} \to \mathbb{R}$. Mówimy, że funkcja $f$ jest \textbf{ciągła} w punkcie $x_0 \in \mathbb{R}$, jeżeli dla dowolnego ciągu argumentów $(x_n)$ zbieżnego do $x_0$, ciąg wartości funkcji $(f(x_n))$ jest zbieżny do $f(x_0)$. Równoważnie:
+\[
+ \lim_{x \to x_0} f(x) = f(x_0).
+\]
+\end{Defi}
+
+\begin{Tw}
+\textbf{Twierdzenie Weierstrassa:} Każda funkcja ciągła określona na przedziale domkniętym i ograniczonym $[a,b]$ przyjmuje w tym przedziale swoją wartość największą (maksimum) i najmniejszą (minimum).
+\end{Tw}
+
+\begin{proof}
+Dowód opiera się na pojęciu zwartości. Przedział domknięty $[a,b]$ jest zbiorem zwartym w $\mathbb{R}$. Obraz zbioru zwartego przez funkcję ciągłą również jest zbiorem zwartym. Zbiór zwarty w $\mathbb{R}$ jest domknięty i ograniczony, a zatem zawiera swoje kresy (supremum i infimum).
+\end{proof}
+
+\begin{Prz}
+\textbf{Funkcja sinus:} Funkcja $f(x)=\sin(x)$ jest ciągła na całej prostej rzeczywistej. Na dowolnym przedziale domkniętym, np. $[0, 2\pi]$, osiąga swoje kresy:
+\begin{itemize}
+    \item Wartość maksymalną: $1$, dla $x = \frac{\pi}{2}$.
+    \item Wartość minimalną: $-1$, dla $x = \frac{3\pi}{2}$.
+\end{itemize}
+Jej zbiór wartości to $[-1,1]$.
+\end{Prz}
+
+\begin{Uw}
+\textbf{Uwagi dotyczące przedziałów:} Założenie o domkniętości przedziału jest kluczowe. Na przykład funkcja $g(x) = \frac{1}{x}$ jest ciągła na przedziale otwartym $(0,1]$, ale nie jest na nim ograniczona z góry, więc nie przyjmuje maksimum.
+\end{Uw}
+
+\end{document}
+
