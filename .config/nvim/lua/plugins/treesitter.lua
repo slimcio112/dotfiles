@@ -36,6 +36,9 @@ return {
                     "xml",
                     "yaml",
                 },
+                ignore_install = {
+                    "latex",
+                },
                 auto_install = true,
             })
         end,
