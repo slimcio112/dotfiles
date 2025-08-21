@@ -31,10 +31,10 @@
     urlcolor=ctpLattePeach,
     citecolor=ctpLatteGreen,
     pdftitle={Notatki z Matematyki},
-    pdfauthor={Twoje Imię},
+    pdfauthor={Stanisław Kamzol},
 }
 
-% --- TCOLORBOX ---
+% --- TCOLORBOX RAMKI ---
 \usepackage[most]{tcolorbox}
 
 \newtcolorbox{Defi}{
@@ -128,49 +128,4 @@
 
 % --- POZOSTAŁE ---
 \renewcommand{\qedsymbol}{\textcolor{ctpLatteText}{$\blacksquare$}}
-\title{\Huge\bfseries Notatki z Matematyki\\[1ex]\large\color{ctpLatteSubtext} Przykładowy dokument}
-\author{\large Stanisław Kamzol}
-\date{\today}
-
-% =============================================
-\begin{document}
-\color{ctpLatteText}
-
-\maketitle
-\hrule height 1.2pt
-\vspace{1.5em}
-\tableofcontents
-\newpage
-
-\section{Analiza Matematyczna}
-
-\begin{Defi}
-Niech $f: \mathbb{R} \to \mathbb{R}$. Mówimy, że funkcja $f$ jest \textbf{ciągła} w punkcie $x_0 \in \mathbb{R}$, jeżeli dla dowolnego ciągu argumentów $(x_n)$ zbieżnego do $x_0$, ciąg wartości funkcji $(f(x_n))$ jest zbieżny do $f(x_0)$. Równoważnie:
-\[
- \lim_{x \to x_0} f(x) = f(x_0).
-\]
-\end{Defi}
-
-\begin{Tw}
-\textbf{Twierdzenie Weierstrassa:} Każda funkcja ciągła określona na przedziale domkniętym i ograniczonym $[a,b]$ przyjmuje w tym przedziale swoją wartość największą (maksimum) i najmniejszą (minimum).
-\end{Tw}
-
-\begin{proof}
-Dowód opiera się na pojęciu zwartości. Przedział domknięty $[a,b]$ jest zbiorem zwartym w $\mathbb{R}$. Obraz zbioru zwartego przez funkcję ciągłą również jest zbiorem zwartym. Zbiór zwarty w $\mathbb{R}$ jest domknięty i ograniczony, a zatem zawiera swoje kresy (supremum i infimum).
-\end{proof}
-
-\begin{Prz}
-\textbf{Funkcja sinus:} Funkcja $f(x)=\sin(x)$ jest ciągła na całej prostej rzeczywistej. Na dowolnym przedziale domkniętym, np. $[0, 2\pi]$, osiąga swoje kresy:
-\begin{itemize}
-    \item Wartość maksymalną: $1$, dla $x = \frac{\pi}{2}$.
-    \item Wartość minimalną: $-1$, dla $x = \frac{3\pi}{2}$.
-\end{itemize}
-Jej zbiór wartości to $[-1,1]$.
-\end{Prz}
-
-\begin{Uw}
-\textbf{Uwagi dotyczące przedziałów:} Założenie o domkniętości przedziału jest kluczowe. Na przykład funkcja $g(x) = \frac{1}{x}$ jest ciągła na przedziale otwartym $(0,1]$, ale nie jest na nim ograniczona z góry, więc nie przyjmuje maksimum.
-\end{Uw}
-
-\end{document}
 
