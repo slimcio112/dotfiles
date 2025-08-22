@@ -1,1 +1,10 @@
+# --- Wczytanie motywu Catppuccin Mocha ---
 include catppuccin-mocha
+
+# --- Kolory Mocha są zdefiniowane w pliku catppuccin-mocha ---
+set recolor false
+set recolor-keephue false
+
+# --- Skrót do przełączania Mocha/original PDF ---
+# Ctrl+r działa we wszystkich buildach
+map normal <C-r> toggle recolor
