@@ -11,25 +11,55 @@
 % --- PAKIETY MATEMATYCZNE ---
 \usepackage{amsmath, amssymb, amsthm, mathtools}
 
+% --- TRYB DARK/LIGHT ---
+\newif\ifdarkmode
+\darkmodetrue   % <-- odkomentuj, jeśli chcesz DARK MODE (Mocha)
+%\darkmodefalse    % <-- odkomentuj, jeśli chcesz LIGHT MODE (Latte)
+
 % --- KOLORY I HIPERŁĄCZA ---
 \usepackage{xcolor}
-\definecolor{ctpLatteBase}{HTML}{eff1f5}
-\definecolor{ctpLatteCrust}{HTML}{dce0e8}
-\definecolor{ctpLatteText}{HTML}{4c4f69}
-\definecolor{ctpLatteSubtext}{HTML}{6c6f85}
-\definecolor{ctpLatteMauve}{HTML}{8839ef}
-\definecolor{ctpLatteBlue}{HTML}{1e66f5}
-\definecolor{ctpLatteGreen}{HTML}{40a02b}
-\definecolor{ctpLatteRed}{HTML}{d20f39}
-\definecolor{ctpLattePeach}{HTML}{fe640b}
-\definecolor{ctpLatteLavender}{HTML}{7287fd}
+\usepackage{pagecolor}
+
+\ifdarkmode
+  % --- Catppuccin Mocha ---
+  \definecolor{ctpBase}{HTML}{1e1e2e}
+  \definecolor{ctpCrust}{HTML}{11111b}
+  \definecolor{ctpText}{HTML}{cdd6f4}
+  \definecolor{ctpSubtext}{HTML}{a6adc8}
+  \definecolor{ctpMauve}{HTML}{cba6f7}
+  \definecolor{ctpBlue}{HTML}{89b4fa}
+  \definecolor{ctpGreen}{HTML}{a6e3a1}
+  \definecolor{ctpRed}{HTML}{f38ba8}
+  \definecolor{ctpPeach}{HTML}{fab387}
+  \definecolor{ctpLavender}{HTML}{b4befe}
+\else
+  % --- Catppuccin Latte ---
+  \definecolor{ctpBase}{HTML}{eff1f5}
+  \definecolor{ctpCrust}{HTML}{dce0e8}
+  \definecolor{ctpText}{HTML}{4c4f69}
+  \definecolor{ctpSubtext}{HTML}{6c6f85}
+  \definecolor{ctpMauve}{HTML}{8839ef}
+  \definecolor{ctpBlue}{HTML}{1e66f5}
+  \definecolor{ctpGreen}{HTML}{40a02b}
+  \definecolor{ctpRed}{HTML}{d20f39}
+  \definecolor{ctpPeach}{HTML}{fe640b}
+  \definecolor{ctpLavender}{HTML}{7287fd}
+\fi
+
+\ifdarkmode
+  \pagecolor{ctpBase}
+  \color{ctpText}
+\else
+  \pagecolor{ctpBase}
+  \color{ctpText}
+\fi
 
 \usepackage{hyperref}
 \hypersetup{
     colorlinks=true,
-    linkcolor=ctpLatteBlue,
-    urlcolor=ctpLattePeach,
-    citecolor=ctpLatteGreen,
+    linkcolor=ctpBlue,
+    urlcolor=ctpPeach,
+    citecolor=ctpGreen,
     pdftitle={Notatki z Matematyki},
     pdfauthor={Stanisław Kamzol},
 }
@@ -39,14 +69,15 @@
 
 \newtcolorbox{Defi}{
     enhanced,
-    colback=ctpLatteBase,
-    colframe=ctpLatteMauve,
+    colback=ctpBase,
+    colframe=ctpMauve,
     coltitle=white,
+    coltext=ctpText,
     fonttitle=\bfseries,
     title=Definicja,
     boxed title style={
-        colback=ctpLatteMauve,
-        colframe=ctpLatteMauve,
+        colback=ctpMauve,
+        colframe=ctpMauve,
         coltext=white,
         boxrule=1pt,
         arc=4pt
@@ -59,14 +90,15 @@
 
 \newtcolorbox{Tw}{
     enhanced,
-    colback=ctpLatteBase,
-    colframe=ctpLatteBlue,
+    colback=ctpBase,
+    colframe=ctpBlue,
     coltitle=white,
+    coltext=ctpText,
     fonttitle=\bfseries,
     title=Twierdzenie,
     boxed title style={
-        colback=ctpLatteBlue,
-        colframe=ctpLatteBlue,
+        colback=ctpBlue,
+        colframe=ctpBlue,
         coltext=white,
         boxrule=1pt,
         arc=4pt
@@ -79,14 +111,15 @@
 
 \newtcolorbox{Prz}{
     enhanced,
-    colback=ctpLatteBase,
-    colframe=ctpLatteGreen,
+    colback=ctpBase,
+    colframe=ctpGreen,
     coltitle=white,
+    coltext=ctpText,
     fonttitle=\bfseries,
     title=Przykład,
     boxed title style={
-        colback=ctpLatteGreen,
-        colframe=ctpLatteGreen,
+        colback=ctpGreen,
+        colframe=ctpGreen,
         coltext=white,
         boxrule=1pt,
         arc=4pt
@@ -99,14 +132,15 @@
 
 \newtcolorbox{Uw}{
     enhanced,
-    colback=ctpLatteBase,
-    colframe=ctpLattePeach,
+    colback=ctpBase,
+    colframe=ctpPeach,
     coltitle=white,
+    coltext=ctpText,
     fonttitle=\bfseries,
     title=Uwaga,
     boxed title style={
-        colback=ctpLattePeach,
-        colframe=ctpLattePeach,
+        colback=ctpPeach,
+        colframe=ctpPeach,
         coltext=white,
         boxrule=1pt,
         arc=4pt
@@ -120,12 +154,12 @@
 % --- LEPSZE NAGŁÓWKI SEKCJI ---
 \usepackage{titlesec}
 \titleformat{\section}
-  {\normalfont\Large\bfseries\color{ctpLatteLavender}}
+  {\normalfont\Large\bfseries\color{ctpLavender}}
   {\thesection.}{1em}{}
 \titleformat{\subsection}
-  {\normalfont\large\bfseries\color{ctpLatteLavender}}
+  {\normalfont\large\bfseries\color{ctpLavender}}
   {\thesubsection.}{1em}{}
 
 % --- POZOSTAŁE ---
-\renewcommand{\qedsymbol}{\textcolor{ctpLatteText}{$\blacksquare$}}
+\renewcommand{\qedsymbol}{\textcolor{ctpText}{$\blacksquare$}}
 
