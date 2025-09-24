@@ -1,5 +1,4 @@
-
-# --- UI Kolory ---
+# UI colors
 set default-fg                rgba(205,214,244,1)
 set default-bg                rgba(30,30,46,1)
 
@@ -35,8 +34,8 @@ set highlight-color           rgba(87,82,104,0.5)
 set highlight-fg              rgba(245,194,231,0.5)
 set highlight-active-color    rgba(245,194,231,0.5)
 
-# --- Kolory PDF (recolor) ---
-set recolor-lightcolor rgba(30,30,46,1)    # tło PDF
-set recolor-darkcolor  rgba(205,214,244,1) # tekst PDF
+# PDF colors 
+set recolor-lightcolor rgba(30,30,46,1)    
+set recolor-darkcolor  rgba(205,214,244,1)
 
 
