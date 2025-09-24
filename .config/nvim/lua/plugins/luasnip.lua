@@ -7,12 +7,11 @@ return {
         local t = ls.text_node
         local i = ls.insert_node
 
-        -- ✦ Snippety dla LaTeX ✦
         ls.add_snippets("tex", {
-            -- figure (PDF-ready)
+            -- figure environment
             s("fig", {
                 t({ "\\begin{figure}[h!]", "    \\centering", "    \\includegraphics[width=0.6\\textwidth]{" }),
-                i(1, "img/example.pdf"), -- domyślnie PDF
+                i(1, "img/example.pdf"),
                 t({ "}", "    \\caption{" }),
                 i(2, "Opis obrazka"),
                 t({ "}", "    \\label{fig:" }),
@@ -20,22 +19,22 @@ return {
                 t({ "}", "\\end{figure}" }),
             }),
 
-            -- ramki Catppuccin
+            -- tcolorbox
             s("defi", { t({ "\\begin{Defi}", "" }), i(1, "Treść definicji"), t({ "", "\\end{Defi}" }) }),
             s("tw", { t({ "\\begin{Tw}", "" }), i(1, "Treść twierdzenia"), t({ "", "\\end{Tw}" }) }),
             s("prz", { t({ "\\begin{Prz}", "" }), i(1, "Treść przykładu"), t({ "", "\\end{Prz}" }) }),
             s("uw", { t({ "\\begin{Uw}", "" }), i(1, "Treść uwagi"), t({ "", "\\end{Uw}" }) }),
         })
 
-        -- ✦ Keymap do odpalania Inkscape i automatycznej konwersji PDF ✦
+        -- Inkscape snippet
         vim.keymap.set("n", "<leader>fi", function()
-            local filename = vim.fn.input("Plik SVG (bez .svg): ", "img/diagram")
+            local filename = vim.fn.input("SVG file (without .svg): ", "img/diagram")
             if filename ~= "" then
                 os.execute("mkdir -p img")
                 local svg_path = filename .. ".svg"
                 local pdf_path = filename .. ".pdf"
 
-                -- jeśli plik SVG nie istnieje → stwórz minimalny
+                -- create inkscape file
                 if vim.fn.filereadable(svg_path) == 0 then
                     local f = io.open(svg_path, "w")
                     f:write([[
@@ -46,15 +45,15 @@ return {
                     f:close()
                 end
 
-                -- odpal Inkscape w tle i po zamknięciu konwertuj do PDF
+                -- run inkscape
                 vim.fn.jobstart({
                     "sh",
                     "-c",
                     "inkscape '" .. svg_path .. "' && inkscape '" .. svg_path .. "' --export-type=pdf",
                 }, { detach = true })
 
-                print("Otwieram Inkscape i automatycznie wygeneruję PDF po zapisaniu.")
+                print("Inkscape file editing.")
             end
-        end, { desc = "Otwórz Inkscape i wygeneruj PDF" })
+        end, { desc = "Run inkscape and export as PDF." })
     end,
 }
