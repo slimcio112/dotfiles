@@ -1,27 +1,27 @@
 \documentclass[12pt,a4paper]{article}
 
-% --- PAKIETY PODSTAWOWE ---
+% text formatting
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
 \usepackage[polish]{babel}
 
-% --- GEOMETRIA STRONY ---
+% geometry
 \usepackage[margin=2.5cm, top=3cm, bottom=3cm]{geometry}
 
-% --- PAKIETY MATEMATYCZNE ---
+% math
 \usepackage{amsmath, amssymb, amsthm, mathtools}
 
-% --- TRYB DARK/LIGHT ---
+% DARK/LIGHT colors
 \newif\ifdarkmode
-\darkmodetrue   % <-- odkomentuj, jeśli chcesz DARK MODE (Mocha)
-%\darkmodefalse    % <-- odkomentuj, jeśli chcesz LIGHT MODE (Latte)
+\darkmodetrue   % <-- uncomment for DARK MODE
+%\darkmodefalse    % <-- uncomment for LIGHT MODE
 
-% --- KOLORY I HIPERŁĄCZA ---
+% colors and hyperrefs
 \usepackage{xcolor}
 \usepackage{pagecolor}
 
 \ifdarkmode
-  % --- Catppuccin Mocha ---
+  % Catppuccin Mocha (DARK MODE)
   \definecolor{ctpBase}{HTML}{1e1e2e}
   \definecolor{ctpCrust}{HTML}{11111b}
   \definecolor{ctpText}{HTML}{cdd6f4}
@@ -33,7 +33,7 @@
   \definecolor{ctpPeach}{HTML}{fab387}
   \definecolor{ctpLavender}{HTML}{b4befe}
 \else
-  % --- Catppuccin Latte ---
+  % Catppuccin Latte (LIGHT MODE)
   \definecolor{ctpBase}{HTML}{eff1f5}
   \definecolor{ctpCrust}{HTML}{dce0e8}
   \definecolor{ctpText}{HTML}{4c4f69}
@@ -46,13 +46,8 @@
   \definecolor{ctpLavender}{HTML}{7287fd}
 \fi
 
-\ifdarkmode
-  \pagecolor{ctpBase}
-  \color{ctpText}
-\else
-  \pagecolor{ctpBase}
-  \color{ctpText}
-\fi
+\pagecolor{ctpBase}
+\color{ctpText}
 
 \usepackage{hyperref}
 \hypersetup{
@@ -64,7 +59,7 @@
     pdfauthor={Stanisław Kamzol},
 }
 
-% --- TCOLORBOX RAMKI ---
+% tcolorbox
 \usepackage[most]{tcolorbox}
 
 \newtcolorbox{Defi}{
@@ -151,7 +146,7 @@
     left=8pt,right=8pt,top=6pt,bottom=6pt
 }
 
-% --- LEPSZE NAGŁÓWKI SEKCJI ---
+% better section headers
 \usepackage{titlesec}
 \titleformat{\section}
   {\normalfont\Large\bfseries\color{ctpLavender}}
@@ -160,6 +155,5 @@
   {\normalfont\large\bfseries\color{ctpLavender}}
   {\thesubsection.}{1em}{}
 
-% --- POZOSTAŁE ---
 \renewcommand{\qedsymbol}{\textcolor{ctpText}{$\blacksquare$}}
 
