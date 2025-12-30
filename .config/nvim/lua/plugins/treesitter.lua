@@ -1,18 +1,19 @@
 return {
     {
         "nvim-treesitter/nvim-treesitter",
-        branch = "master",
-        lazy = false,
-        build = function()
-            require("nvim-treesitter.install").update({ with_sync = true })
-        end,
+        build = ":TSUpdate",
+
+        event = { "BufReadPost", "BufNewFile" },
+
         config = function()
             require("nvim-treesitter.configs").setup({
                 highlight = { enable = true },
                 indent = { enable = true },
+
                 ensure_installed = {
                     "bash",
                     "c",
+                    "cpp",
                     "diff",
                     "html",
                     "javascript",
@@ -36,10 +37,20 @@ return {
                     "xml",
                     "yaml",
                 },
-                ignore_install = {
-                    "latex",
-                },
+
+                ignore_install = { "latex" },
+
                 auto_install = true,
+
+                incremental_selection = {
+                    enable = true,
+                    keymaps = {
+                        init_selection = "<C-space>",
+                        node_incremental = "<C-space>",
+                        scope_incremental = false,
+                        node_decremental = "<bs>",
+                    },
+                },
             })
         end,
     },

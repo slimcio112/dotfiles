@@ -74,17 +74,25 @@ map("n", "]q", "<cmd>cnext<cr>", { desc = "Next Quickfix" })
 
 -- formatting
 map({ "n", "v" }, "<leader>cf", function()
-    vim.lsp.buf.format({ async = true })
+    local status, conform = pcall(require, "conform")
+    if status then
+        conform.format({ async = true, lsp_fallback = true })
+    else
+        vim.lsp.buf.format({ async = true })
+    end
 end, { desc = "Format" })
 
 -- diagnostics
 local diagnostic_goto = function(next, severity)
-    local go = next and vim.diagnostic.goto_next or vim.diagnostic.goto_prev
+    -- Ustalanie kierunku: 1 to "następny", -1 to "poprzedni"
+    local count = next and 1 or -1
 
+    -- Konwersja nazwy severity (np. "ERROR") na kod liczbowy
     severity = severity and vim.diagnostic.severity[severity] or nil
 
     return function()
-        go({ severity = severity })
+        -- Nowa funkcja w Neovim 0.11
+        vim.diagnostic.jump({ count = count, severity = severity })
     end
 end
 map("n", "<leader>cd", vim.diagnostic.open_float, { desc = "Line Diagnostics" })
